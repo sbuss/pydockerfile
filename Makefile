@@ -14,6 +14,10 @@ venv: $(VENV_ACTIVATE)
 
 .PHONY: test
 test: $(VENV_ACTIVATE)
+	$(WITH_VENV) py.test tests/
+
+.PHONY: tox
+tox: $(VENV_ACTIVATE)
 	$(WITH_VENV) TOXENV=py27 tox --develop
 
 .PHONY: authors
