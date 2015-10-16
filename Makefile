@@ -35,6 +35,7 @@ clean:
 	rm -rf dist/
 	rm -rf *.egg*
 	find . -type f -name '*.pyc' -delete
+	rm -rf htmlcov/
 
 .PHONY: teardown
 teardown:
