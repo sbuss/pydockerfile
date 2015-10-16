@@ -4,6 +4,9 @@ class Line(object):
         self.args = args
         self.raw = raw
 
+    def __repr__(self):
+        return "<Line({cmd}, {args})>".format(cmd=self.cmd, args=self.args)
+
     def __str__(self):
         return self.raw
 
@@ -20,6 +23,11 @@ class Dockerfile(object):
     def __init__(self, line_class=Line):
         self.lines = []
         self._line_class = line_class
+
+    def __repr__(self):
+        first_line = self.lines[0] if self.lines else None
+        return "<Dockerfile({first_line}...)>".format(
+            first_line=str(first_line))
 
     def __str__(self):
         return "\n".join(str(line) for line in self.lines)
