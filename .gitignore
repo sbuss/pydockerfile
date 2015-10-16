@@ -4,7 +4,8 @@ build/*
 dist/*
 *.pyc
 .venv
-cover/
 .tox
+.cache
+htmlcov/
 
 readme.html
