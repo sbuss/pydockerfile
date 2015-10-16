@@ -5,12 +5,15 @@ from tests.fixtures import DOCKERFILE_PATH
 from tests.fixtures import DOCKERFILE_LINE_CONT_PATH
 from tests.fixtures import dockerfile_str
 from tests.fixtures import dockerfile_line_cont_str
+from tests.fixtures import dockerfile_with_comments_str
 
 
 @pytest.mark.parametrize(
     "dockerfile, size",
     [(dockerfile_str(), len(dockerfile_str().strip().split("\n"))),
-     (dockerfile_line_cont_str(), 3)])
+     (dockerfile_line_cont_str(), 3),
+     (dockerfile_with_comments_str(),
+      len(dockerfile_with_comments_str().strip().split("\n")))])
 def test_num_lines_str(dockerfile, size):
     parser = DockerfileParser()
     parsed_dockerfile = parser.from_string(dockerfile)
