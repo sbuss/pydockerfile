@@ -7,12 +7,13 @@ $(VENV_ACTIVATE): requirements*.txt
 	$(WITH_VENV) pip install --upgrade -r requirements.txt
 	$(WITH_VENV) pip install --upgrade -r requirements-dev.txt
 	$(WITH_VENV) pip install --upgrade -r requirements-packaging.txt
+	touch $@
 
 .PHONY: venv
 venv: $(VENV_ACTIVATE)
 
 .PHONY: test
-test: venv
+test: $(VENV_ACTIVATE)
 	$(WITH_VENV) TOXENV=py27 tox
 
 .PHONY: authors
@@ -24,7 +25,7 @@ readme.html: readme.rst
 
 # Ensure the sdist builds correctly
 .PHONY: sdist
-sdist: authors venv readme.html
+sdist: authors $(VENV_ACTIVATE) readme.html
 	$(WITH_VENV) python setup.py sdist bdist_wheel
 
 .PHONY: clean
