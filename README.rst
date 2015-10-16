@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/sbuss/pydockerfile.svg?branch=master
+    :target: https://travis-ci.org/sbuss/pydockerfile
+
 pydockerfile
 ============
 
