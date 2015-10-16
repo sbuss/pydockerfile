@@ -4,7 +4,7 @@
 pydockerfile
 ============
 
-`pydockerfile` gives simplistic Dockerfile parsing. It performs no validation.
+``pydockerfile`` gives simplistic Dockerfile parsing. It performs no validation.
 
 
 Installation
