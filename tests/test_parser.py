@@ -43,3 +43,10 @@ def test_eq(dockerfile_s, dockerfile_path, dockerfile_ne_path):
     assert dockerfile_str != dockerfile_ne
     assert dockerfile_file != dockerfile_ne
     assert dockerfile_ne == dockerfile_ne
+
+
+def test_comments(dockerfile_with_comments_str):
+    parser = DockerfileParser()
+    dockerfile = parser.from_string(dockerfile_with_comments_str)
+    assert dockerfile.lines[0].cmd == "#"
+    assert dockerfile.lines[0].args == "Comments before FROM"

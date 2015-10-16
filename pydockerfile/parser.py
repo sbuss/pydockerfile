@@ -10,7 +10,8 @@ class LineParser(object):
         trimmed_string = string.strip()
         if trimmed_string.startswith("#"):
             # We have a comment
-            return self.line_class("#", trimmed_string, string)
+            return self.line_class(
+                "#", trimmed_string.lstrip("#").strip(), string)
         elif not trimmed_string:
             # Blank line
             return self.line_class("", "", string)
