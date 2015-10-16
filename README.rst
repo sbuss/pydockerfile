@@ -20,5 +20,5 @@ Usage
 .. code-block:: python
 
     import pydockerfile
-    dockerfile = pydockerfile.parse('/path/to/Dockerfile')
+    dockerfile = pydockerfile.parse_file('/path/to/Dockerfile')
     assert dockerfile.FROM
